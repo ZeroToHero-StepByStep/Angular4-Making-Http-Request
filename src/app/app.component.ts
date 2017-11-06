@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ServerService} from './server.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  constructor(private serverService: ServerService){
 
+  }
+
+  onSave(){
+    this.serverService.storeServers(this.servers)
+      .subscribe(
+        (response) => console.log(response),
+        (error) => console.log(error)
+      );
+  }
 
   servers = [
     {
