@@ -13,6 +13,9 @@ export class ServerService {
     return this.http.post('https://udemy-ng-http-465f0.firebaseio.com/data.json',
       servers,
       {headers:headers});
+  }
 
+  getServers(){
+    return this.http.get('https://udemy-ng-http-465f0.firebaseio.com/data.json') ;
   }
 }
