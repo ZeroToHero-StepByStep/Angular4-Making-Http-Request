@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ServerService} from './server.service';
-import { Response } from '@angular/http';
+
+import {Http, Response} from '@angular/http';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ import { Response } from '@angular/http';
 })
 export class AppComponent {
 
+  appName = this.serverService.getAppName();
   constructor(private serverService: ServerService){
 
   }
@@ -51,6 +53,9 @@ export class AppComponent {
       id: this.generateId()
     });
   }
+
+
+
   private generateId() {
     return Math.round(Math.random() * 10000);
   }
